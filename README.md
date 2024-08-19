@@ -229,16 +229,13 @@ This approach should lead to an agent that plays KungFuMaster more effectively, 
 To demonstrate the initial behavior of the agent before training, here are videos of the untrained agent:
 
 1. Untrained Agent - Episode 1
-
-[PLACEHOLDER_UNTRAINED_AGENT_VIDEO_1]
+https://github.com/rafael-caetano/A3C_Kung-Fu_Master/blob/main/videos_untrained/rl-video-episode-1.mp4
 
 2. Untrained Agent - Episode 2
-
-[PLACEHOLDER_UNTRAINED_AGENT_VIDEO_2]
+https://github.com/rafael-caetano/A3C_Kung-Fu_Master/blob/main/videos_untrained/rl-video-episode-2.mp4
 
 3. Untrained Agent - Episode 3
-
-[PLACEHOLDER_UNTRAINED_AGENT_VIDEO_3]
+https://github.com/rafael-caetano/A3C_Kung-Fu_Master/blob/main/videos_untrained/rl-video-episode-3.mp4
 
 These videos show the random actions taken by the agent before any learning has occurred, these serve as the baseline that we wish to overcome.
 
@@ -259,8 +256,7 @@ For the comparisons there are 2 plots:
 As can be seen in the plot above, at around 50,000 iterations the agent learns a very effective policy for reaching very high scores. Training for a further 150,000 iterations does not improve the agents scores. By the end of training, entropy pretty much reaches zero indicating that the policy has converged and there is little action variety in the agents behaviour. This low entropy was immedieatly a red flag because the game environment involves dodging ducking and jumping over projectiles as well as attacking enemies. 
 
 Here is the video of this agent in the game environment:
-
-[PLACEHOLDER_scaled_kungfu_video-episode-1.mp4]
+https://github.com/rafael-caetano/A3C_Kung-Fu_Master/blob/main/videos_trained/scaled_kungfu_video-episode-1.mp4
 
 
 As can be seen in the video, the agent converged on a repetitive strategy of ducking and attacking rapidly. While this strategy seems to work well for obtaining high scores it will not generalize well in a more diverse environment with more varied atacks from enemies. 
@@ -270,8 +266,8 @@ As can be seen in the video, the agent converged on a repetitive strategy of duc
 ![Exploded Agent Plot](./outputs/exploded_agent_plot.png)
 
 The unscaled agent, as shown in the plot, demonstrates the importance of reward scaling in reinforcement learning. Without scaling, the agent fails to learn effectively, with rewards rapidly collapsing to near-zero after an initial spike. This behavior is indicative of the "exploding gradient" problem. The large, unscaled rewards (multiples of 100 in Kung-Fu Master) lead to extreme gradients during backpropagation, causing drastic and unstable updates to the network weights. Consequently, the agent's policy becomes erratic and ineffective, as evidenced by the unstable entropy levels. This agent was trained for 50,000 iterations because its quick colapse warrented no further exploration if training time would cause it to improve.
+https://github.com/rafael-caetano/A3C_Kung-Fu_Master/blob/main/videos_trained/exploded_kungfu_video-episode-1.mp4
 
-[PLACEHOLDER_exploded_kungfu_video-episode-1.mp4]
 
 The video confirms that the agent does mostly nothing ot atacks at random reflecting how the lack of scaling prevents the agent from converging on a strategy. This is simply a demonstration of how scalling rewards is so important for RL problems.
 
@@ -286,8 +282,8 @@ In an atempt to solve the "reward hacking" behaviour of the original agent, I sh
 
 
 Here is the video of this agent in the game environment:
+https://github.com/rafael-caetano/A3C_Kung-Fu_Master/blob/main/videos_trained/improved_kungfu_video-episode-1.mp4
 
-[PLACEHOLDER_improved_kungfu_video-episode-1.mp4]
 
 As can be seen by the video this agent is much more dynamic in movement and much more deliberate in attacking enemies. Some movements are still wasted probably due to the exploration incentive. The agent shows some instances of dodging knives (perhaps randomly but it does occur more than once) which is a very important part of progressing in the game. The agent struggles with the knife throwing enemies but the normal enemies are no longer an issue rarelly causing any damage and being easily dispatched. Overall, the reward shapping strategy was a success and did in fact improve the agents behaviour.
 
